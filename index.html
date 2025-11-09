@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-projeto</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Mini-projeto Web</h1>
+    </header>
+    <main>
+        <form action="">
+            <div>
+                <label for="name">Nome:</label>
+                <input type="text" name="name" required>
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" required>
+            </div>
+            <div>
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" required>
+            </div>
+            <div>
+                <label for="confirmaSenha">Confirme sua senha:</label>
+                <input type="password" name="confirmaSenha" required>
+            </div>
+            <div>
+                <label for="dataNasc">Data de Nascimento:</label>
+                <input type="date" name="dataNasc" required>
+            </div>
+            <div>
+                <label for="tel">Telefone:</label>
+                <input type="tel" name="tel" required>
+            </div>
+            <input type="checkbox" name="termos" id="termos"><label for="termos">Eu li e concordo com os <a href="#" id="openTerms">termos de uso</a></label>
+            <button disabled="disabled"></button>
+        </form>
+    </main>
+
+    <div id="termsPopup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h1>Termos de Uso e Serviço do Mini projeto</h1>
+                <button id="closeTerms" class="close-button">&times;</button>
+            </div>
+            <div class="popup-body">
+                <p>Seja Bem-Vindo ao site do Mini projeto. Antes de explorar tudo o que temos a oferecer, é importante que você entenda e concorde com algumas regras básicas que regem o uso do nosso site Miniprojeto.com.br, 
+                e qualquer outro serviço digital que nós oferecemos, como lojas e plataformas de e-commerce.</p>
+
+                <h3>1. Aceitando os Termos</h3>
+                <p>Ao navegar e usar o site da Mini projeto, você concorda automaticamente com nossas regras e condições.</p>
+
+                <h3>2. Como Usar o Nosso Site</h3>
+                <p>A maior parte do nosso site está aberta para você sem a necessidade de cadastro. 
+                No entanto, algumas seções especiais podem exigir que você crie uma conta.</p>
+
+                <h3>3. Sua Privacidade</h3>
+                <p>No Mini projeto, a privacidade é um valor essencial. Ao interagir com nosso site, você aceita nossa Política de Privacidade, 
+                que detalha nossa abordagem responsável e conforme às leis para o manejo dos seus dados pessoais.</p>
+
+                <h3>4. Direitos de Conteúdo</h3>
+                <p>O conteúdo disponível no site da Mini projeto constitui propriedade intelectual protegida tanto pela legislação nacional quanto por tratados internacionais sobre direitos autorais e propriedade industrial.</p>
+
+                <h3>5. Cookies e Mais</h3>
+                <p>Utilizamos cookies para melhorar sua experiência, coletando informações anônimas durante sua visita, como suas preferências de idioma, 
+                duração da visita, páginas acessadas, e outras estatísticas de uso.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
