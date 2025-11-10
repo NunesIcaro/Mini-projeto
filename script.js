@@ -50,6 +50,34 @@ function verifyTermos(){
     return termos.checked;
 }
 
+function verifyDataNasc(dataNasc) {
+    const regex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+    if (!regex.test(dataNasc)) {
+        return false;
+    }
+
+    // Quebra a data em dia, mês e ano
+    const [dia, mes, ano] = dataNasc.split('/').map(Number);
+    const data = new Date(ano, mes - 1, dia);
+
+    if (
+        data.getDate() !== dia ||
+        data.getMonth() !== mes - 1 ||
+        data.getFullYear() !== ano
+    ) {
+        return false;
+    }
+
+    // Verifica se a data não é futura
+    const hoje = new Date();
+    hoje.setHours(0, 0, 0, 0);
+    if (data > hoje) {
+        return false;
+    }
+
+    return true;
+}
+
 /* Função que adiciona usuário à lista */
 function adicionarUsuarioLista(nomeUsuario, emailUsuario){
     // Cria uma div para colocar as informações do usuário
@@ -92,6 +120,8 @@ document.getElementById('btnCadastrar').addEventListener('click',function(){
         msg.textContent = 'A Senha deve ter pelo menos uma letra maiúscula, uma minúscula, um número e no mínimo 8 caracteres';
     }else if (!verifyConfSenha(senha.value,confSenha.value)){
         msg.textContent = 'Os campos Senha e Confirme sua Senha devem ser iguais';
+    }else if (!verifyDataNasc(dataNasc.value)){
+        msg.textContent = 'A data de nascimento não é válida ou é uma data futura';
     }else if (!verifyTermos()){
         msg.textContent = 'Leia e aceite os termos de condição';
     }else{
