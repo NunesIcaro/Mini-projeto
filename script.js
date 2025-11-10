@@ -145,6 +145,8 @@ document.getElementById('btnCadastrar').addEventListener('click',function(){
         // Mostra mensagem de sucesso
         msg.style.color = 'green';
         msg.textContent = 'Usuário cadastrado com sucesso!';
+
+        ClearInputs();
         
         alert(`Olá ${nome.value}, agora você está concorrendo a um prêmio de R$ 100.000,00`);
     }
