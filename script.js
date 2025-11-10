@@ -78,6 +78,10 @@ function verifyDataNasc(dataNasc) {
     return true;
 }
 
+function verifyTel(tel) {
+    return tel.length === 15;
+}
+
 /* Função que adiciona usuário à lista */
 function adicionarUsuarioLista(nomeUsuario, emailUsuario){
     // Cria uma div para colocar as informações do usuário
@@ -121,7 +125,9 @@ document.getElementById('btnCadastrar').addEventListener('click',function(){
     }else if (!verifyConfSenha(senha.value,confSenha.value)){
         msg.textContent = 'Os campos Senha e Confirme sua Senha devem ser iguais';
     }else if (!verifyDataNasc(dataNasc.value)){
-        msg.textContent = 'A data de nascimento não é válida ou é uma data futura';
+        msg.textContent = 'A data de nascimento não é válida';
+    }else if (!verifyTel(tel.value)){
+        msg.textContent = 'Telefone inválido, preencha corretamente';
     }else if (!verifyTermos()){
         msg.textContent = 'Leia e aceite os termos de condição';
     }else{
