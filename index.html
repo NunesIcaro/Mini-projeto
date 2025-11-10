@@ -37,10 +37,19 @@
                 <label for="tel">Telefone:</label>
                 <input type="tel" name="tel" id="tel" placeholder="(00) 00000-0000" required>
             </div>
-            <input type="checkbox" name="termos" id="termos"><label for="termos">Eu li e concordo com os <a href="#" id="openTerms">termos de uso</a></label>
+            <div>
+                <input type="checkbox" name="termos" id="termos"><label for="termos">Eu li e concordo com os <a href="#" id="openTerms">termos de uso</a></label>
+            </div>
             <p id="msg"></p>
             <button id="btnCadastrar" type="button">Cadastrar</button>
         </form>
+        
+        <div id="userList">
+            <h2>Usuários Cadastrados</h2>
+            <div id="userListContent">
+                <!-- Lista de usuários será adicionada aqui via JavaScript -->
+            </div>
+        </div>
     </main>
 
     <!-- <div id="termsPopup" class="popup-overlay">
