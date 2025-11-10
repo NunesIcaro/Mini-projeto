@@ -8,7 +8,10 @@ const tel = document.getElementById('tel');
 const btnCadastrar = document.getElementById('btnCadastrar');
 const msg = document.getElementById('msg');
 const termos = document.getElementById('termos');
+const listaUsuarios = document.getElementById('listaUsuarios');
 
+// Array para armazenar os usuários cadastrados
+let usuarios = [];
 
 /* Função que espera o html ter todo seu conteúdo carregado e coloca a mask nos inputs */
 document.addEventListener('DOMContentLoaded', function (){
@@ -47,6 +50,25 @@ function verifyTermos(){
     return termos.checked;
 }
 
+/* Função que adiciona usuário à lista */
+function adicionarUsuarioLista(nomeUsuario, emailUsuario){
+    // Cria uma div para colocar as informações do usuário
+    const divUsuario = document.createElement('div');
+    divUsuario.className = 'user-item';
+    
+    const nomeParagrafo = document.createElement('p');
+    nomeParagrafo.className = 'user-name';
+    nomeParagrafo.textContent = nomeUsuario;
+    
+    const emailParagrafo = document.createElement('p');
+    emailParagrafo.className = 'user-email';
+    emailParagrafo.textContent = emailUsuario;
+    
+    divUsuario.append(nomeParagrafo);
+    divUsuario.append(emailParagrafo);
+    listaUsuarios.append(divUsuario);
+}
+
 /* Função que limpa os inputs após o clique do botão */
 function ClearInputs(){
     nome.value = '';
@@ -59,7 +81,7 @@ function ClearInputs(){
     termos.checked = false;
 }
 
-/* Evento de clique no botão que chama as funções de verificação para ver se esta tudo correto */
+/* Evento de clique no botão que chama as funções de verificação para ver se está tudo correto */
 document.getElementById('btnCadastrar').addEventListener('click',function(){
     msg.style.color = 'red';
     if (!verifyName(nome.value)){
@@ -73,7 +95,22 @@ document.getElementById('btnCadastrar').addEventListener('click',function(){
     }else if (!verifyTermos()){
         msg.textContent = 'Leia e aceite os termos de condição';
     }else{
-        alert(`Olá ${nome.value}, Seja bem-vindo a ...`); /*Tem que ter o nome do projeto pra colocar aqui*/  
+         // Se tudo estiver correto, adiciona o usuário na lista
+        const novoUsuario = {
+            nome: nome.value,
+            email: email.value
+        };
+        
+        usuarios.push(novoUsuario);
+        
+        // Adiciona o usuário na lista que aparece na tela
+        adicionarUsuarioLista(nome.value, email.value);
+        
+        // Mostra mensagem de sucesso
+        msg.style.color = 'green';
+        msg.textContent = 'Usuário cadastrado com sucesso!';
+        
+        alert(`Olá ${nome.value}, agora você está concorrendo a um prêmio de R$ 100.000,00`);
     }
-    ClearInputs();
+
 })
